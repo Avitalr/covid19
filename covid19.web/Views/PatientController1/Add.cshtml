@@ -1,0 +1,87 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model covid19.web.Models.AddPatiant
+
+<h1>Add patient</h1>
+
+<form method="post" onsubmit="return validateForm()">
+    
+    <div class="mt-3">
+        <label class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" pattern="[0-9]{9}" maxlength="9" required oninput="hInput(this)" />
+    </div>
+    <div class="mt-3">
+        <label class="form-label">full_Name</label>
+        <input type="text" class="form-control" asp-for="full_Name" pattern="[A-Za-z\s]+" required oninput="hInput(this)" />
+    </div>
+    <div class="mt-3">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-control" asp-for="Address" pattern="^[A-Za-z\s]+ \d+$+" required oninput="hInput(this)" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">Telphone</label>
+        <input type="tel" class="form-control" asp-for="Telphone" pattern="[0-9]{9,10}" maxlength="10" required oninput="hInput(this)" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">Mobile_Phone</label>
+        <input type="tel" class="form-control" asp-for="Mobile_Phone" pattern="[0-9]{10}" maxlength="10" required oninput="hInput(this)" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">Date_Of_Birth</label>
+        <input type="date" class="form-control" asp-for="Date_Of_Birth" required oninput="hInput(this)" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">Covid_Positive_Date</label>
+        <input type="date" class="form-control" asp-for="Covid_Positive_Date" oninput="hInput(this)" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">Covid_Recovery_Date</label>
+        <input type="date" class="form-control" asp-for="Covid_Recovery_Date" oninput="hInput(this)" />
+    </div>
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Add</button>
+         
+    </div>
+</form>
+<script>
+    function correctInput() {
+         
+        var birthֹ_Of_DateI= document.querySelector('i[name="Date_Of_Birth"]');
+        var covid_Positive_DateI = document.querySelector('i[name="Covid_Positive_Date"]');
+        var recovery_DateI = document.querySelector('i[name="Covid_Recovery_Date"]');
+        var is = document.querySelectorAll('i');
+
+        var flag = true;
+
+        is.forEach(function (i) {
+            if (!i.checkValidity()) {
+                i.style.borderColor = "blue";
+                valid = false;
+            } else {
+                i.style.borderColor = "";
+            }
+        });
+
+        if (!flag) {
+            alert("Please fill in all fields correctly.");
+        }
+
+        return flag;
+    }
+
+    function hInput(i) {
+        if (!i.checkValidity()) {
+            i.style.borderColor = "blue";
+        } else {
+            i.style.borderColor = "";
+        }
+    }
+</script>

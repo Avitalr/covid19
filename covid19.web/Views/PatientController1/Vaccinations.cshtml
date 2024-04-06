@@ -1,0 +1,121 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model covid19.web.Models.Entities.CoronaֹVaccine
+
+<h1>Vaccination Details</h1>
+<form method="post">
+    <div class="mt-3">
+        <label class="form-lable">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-lable">First Corona Vaccine Date</label>
+        <input type="date" class="form-control" asp-for="Corona_Vaccine1" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-lable">First Corona Vaccine Manufacturer</label>
+        <div class="displayV">
+            <input type="text" class="form-control" asp-for="Corona_Manufacturer1" id="corona_Manufacturer1" onclick="DropdownV('manufacturerId1')" />
+            <div id="manufacturerId1" class="displayV-content" style="display: none;">
+                <a href="#" onclick="Manufacturer('Pfizer–BioNTech', 'corona_Manufacturer1')">Pfizer–BioNTech</a>
+                <a href="#" onclick="Manufacturer('Oxford–AstraZeneca', 'corona_Manufacturer1')">Oxford–AstraZeneca</a>
+                <a href="#" onclick="Manufacturer('Moderna', 'corona_Manufacturer1')">Moderna</a>
+                <a href="#" onclick="Manufacturer('AstraZeneca', 'corona_Manufacturer1')">AstraZeneca</a>
+                <a href="#" onclick="Manufacturer('Sinovac', 'corona_Manufacturer1')">Sinovac</a>
+                <a href="#" onclick="Manufacturer('CovaxinP', 'corona_Manufacturer1')">CovaxinP</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <label class="form-lable">Second Corona Vaccine Date</label>
+        <input type="date" class="form-control" asp-for="Corona_Vaccine2" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-lable">Second Corona Vaccine Manufacturer</label>
+        <div class="displayV">
+            <input type="text" class="form-control" asp-for="Corona_Manufacturer2" id="corona_Manufacturer2" onclick="DropdownV('manufacturerId2')" />
+            <div id="manufacturerId2" class="displayV-content" style="display: none;">
+                <a href="#" onclick="Manufacturer('Pfizer–BioNTech', 'corona_Manufacturer2')">Pfizer–BioNTech</a>
+                <a href="#" onclick="Manufacturer('Oxford–AstraZeneca', 'corona_Manufacturer2')">Oxford–AstraZeneca</a>
+                <a href="#" onclick="Manufacturer('Moderna', 'corona_Manufacturer2')">Moderna</a>
+                <a href="#" onclick="Manufacturer('AstraZeneca', 'corona_Manufacturer2')">AstraZeneca</a>
+                <a href="#" onclick="Manufacturer('Sinovac', 'corona_Manufacturer2')">Sinovac</a>
+                <a href="#" onclick="Manufacturer('CovaxinP', 'corona_Manufacturer2')">CovaxinP</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <label class="form-lable">Third Corona Vaccine Date</label>
+        <input type="date" class="form-control" asp-for="Corona_Vaccine3" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-lable">Third Corona Vaccine Manufacturer</label>
+        <div class="displayV">
+            <input type="text" class="form-control" asp-for="Corona_Manufacturer3" id="corona_Manufacturer3" onclick="DropdownV('manufacturerId3')" />
+            <div id="manufacturerId3" class="displayV-content" style="display: none;">
+                <a href="#" onclick="Manufacturer('Pfizer–BioNTech', 'corona_Manufacturer3')">Pfizer–BioNTech</a>
+                <a href="#" onclick="Manufacturer('Oxford–AstraZeneca', 'corona_Manufacturer3')">Oxford–AstraZeneca</a>
+                <a href="#" onclick="Manufacturer('Moderna', 'corona_Manufacturer3')">Moderna</a>
+                <a href="#" onclick="Manufacturer('AstraZeneca', 'corona_Manufacturer3')">AstraZeneca</a>
+                <a href="#" onclick="Manufacturer('Sinovac', 'corona_Manufacturer3')">Sinovac</a>
+                <a href="#" onclick="Manufacturer('CovaxinP', 'corona_Manufacturer3')">CovaxinP</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <label class="form-lable">Forth Corona Vaccine</label>
+        <input type="date" class="form-control" asp-for="Corona_Vaccine4" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-lable">Forth Corona Vaccine Manufacturer</label>
+        <div class="displayV">
+            <input type="text" class="form-control" asp-for="Corona_Manufacturer4" id="corona_Manufacturer4" onclick="DropdownV('manufacturerId4')" />
+            <div id="manufacturerId4" class="displayV-content" style="display: none;">
+                <a href="#" onclick="Manufacturer('Pfizer–BioNTech', 'corona_Manufacturer4')">Pfizer–BioNTech</a>
+                <a href="#" onclick="Manufacturer('Oxford–AstraZeneca', 'corona_Manufacturer4')">Oxford–AstraZeneca</a>
+                <a href="#" onclick="Manufacturer('Moderna', 'corona_Manufacturer4')">Moderna</a>
+                <a href="#" onclick="Manufacturer('AstraZeneca', 'corona_Manufacturer4')">AstraZeneca</a>
+                <a href="#" onclick="Manufacturer('Sinovac', 'corona_Manufacturer4')">Sinovac</a>
+                <a href="#" onclick="Manufacturer('CovaxinP', 'corona_Manufacturer4')">CovaxinP</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-3">
+
+        <a class="btn btn-primary" asp-controller="PatientController1" asp-action="List">Save</a>
+    </div>
+</form>
+
+
+<script>
+    function DropdownV(id) {
+        var dropdownv = document.getElementById(id);
+        if (dropdownv.style.display === "none") {
+            dropdownv.style.display = "block";
+        } else {
+            dropdownv.style.display = "none";
+        }
+    }
+
+    function Manufacturer(manufacturer, id) {
+        var input = document.getElementById(id);
+        input.value = manufacturer;
+        DropdownV('manufacturerId1');
+        DropdownV('manufacturerId2');
+        DropdownV('manufacturerId3');
+        DropdownV('manufacturerId4');
+
+    }
+</script>
